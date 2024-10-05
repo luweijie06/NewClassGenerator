@@ -1,0 +1,62 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.dev.gear.NewClassGenerator</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>NewClassGenerator</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="1397100450@qq.com">DevGear</vendor>
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+   <description><![CDATA[
+<h2>New Class Generator</h2>
+
+<p>This plugin provides a powerful tool for Java developers to quickly generate new classes based on existing ones, streamlining the development process and reducing boilerplate code.</p>
+
+<h3>Key Features:</h3>
+<ul>
+  <li><strong>Class Selection:</strong> Choose any existing class in your project as a template.</li>
+  <li><strong>Field Filtering:</strong> Select specific fields from the template class to include in your new class.</li>
+  <li><strong>Lombok Integration:</strong> Option to use Lombok annotations for cleaner code.</li>
+  <li><strong>Custom Naming:</strong> Specify a custom name for your new class.</li>
+  <li><strong>Package Selection:</strong> Choose the destination package for your new class.</li>
+  <li><strong>Comment Preservation:</strong> Maintains field comments from the original class.</li>
+</ul>
+
+<h3>How to Use:</h3>
+<ol>
+  <li>Navigate to the "Generate" menu or use the shortcut <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>P</kbd>.</li>
+  <li>Select "New Class Generator" from the options.</li>
+  <li>Search and choose a template class.</li>
+  <li>Select desired fields, set options, and choose a name for your new class.</li>
+  <li>Pick a destination package.</li>
+  <li>Your new class will be generated automatically!</li>
+</ol>
+
+<p>Boost your productivity and maintain code consistency with the New Class Generator plugin!</p>
+]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+    <actions>
+        <action id="New Class Generator" class="com.dev.gear.NewClassGeneratorAction"
+                text="NewClassGenerator" description="New Class Generator">
+            <add-to-group group-id="GenerateGroup" anchor="last"/>
+
+            <!-- 这里配置快捷键 -->
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift P"/>
+        </action>
+    </actions>
+</idea-plugin>
